@@ -1,0 +1,28 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1) Use the console (or CLI) to make a new EBS Volume\
+2) Use the Console or CLI to attach the EBS to a running EC2 instance.\
+3) SSH into the EBS, remember that the user is ec2-user@\
+4) lsblk   \
+	This will show the EBS volumes as NVMe block devices\
+5) sudo file -s /dev/xvdf\
+	This will get info about a device.  xvdf may change depending on the device.\
+	This will show if there is a filesystem or not.\
+6)  sudo mkfs -t xfs /dev/xvdf\
+	Only do this step if there is no filesystem already.\
+	If there is an error that mkfs.xfs is not found use:\
+		sudo yum install xfsprogs\
+7) sudo mkdir /data\
+	Could be any dir, this will become the mount point\
+8) sudo mount /dev/xvdf /data\
+\
+To unmount:\
+	sudo umount /data\
+\
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html\
+}
