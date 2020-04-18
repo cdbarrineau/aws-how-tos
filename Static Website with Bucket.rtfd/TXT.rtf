@@ -16,8 +16,9 @@ Highly available static website using Route 53 and CloudFront.\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f1\b This assumes that a common name has been purchased through AWS Route 53.  For others that need to be imported, set the domain name to be exported in the other Registrar and request a code that will be given to AWS to import it.\
+\f1\b \cf0 This assumes that a common name has been purchased through AWS Route 53.  For others that need to be imported, set the domain name to be exported in the other Registrar and request a code that will be given to AWS to import it.\
 \
 1. Create a bucket.  Make it the same names as the domain so that it is clear that\'92s the bucket for the website.\
 	1.1 Grand public access during creation.  Can do it after the fact under Permissions.\
@@ -44,7 +45,10 @@ Highly available static website using Route 53 and CloudFront.\
 	6.7 Go to the Domain Name from the distribution to make sure it can be accessed.\
 7. Direct traffic in Route 53 to example.com\
 	7.1 In Route 53 create an A record with an Alias of the CloudFront target.  May take some time to propagate.\
-
+	7.2 Create a CNAME record for www\
+		7.2.1 www in the name\
+		7.2.2 example.com in the Value\
+		7.2.3 Not aliased
 \f0\b0 \
 \
 \
