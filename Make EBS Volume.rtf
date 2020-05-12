@@ -19,7 +19,11 @@
 		sudo yum install xfsprogs\
 7) sudo mkdir /data\
 	Could be any dir, this will become the mount point\
-8) sudo mount /dev/xvdf /data\
+8) \
+9) sudo cp /etc/fstab /etc/fstab.orig\
+	Make a backup of the file\
+	This will persist the mount point after a restart.\
+10) \
 \
 To unmount:\
 	sudo umount /data\
